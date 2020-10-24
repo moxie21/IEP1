@@ -1,41 +1,22 @@
-#include <iostream>
-#include <chrono>
-#include <ctime>  
+# include <iostream>
+using namespace std;
+class Examen{
+private:
+    int rand, nr_trecuti, nr_picati;
+    Examen& operator=(const Examen&);//prevent the compiler to create the copy assignment operator
+public:
+    Examen(){}
+    Examen(int x, int y, int z)://initializing the fields
+        rand(x),
+        nr_trecuti(y),
+        nr_picati(z)
+    {}
+    void getvals(){//return values of fields
+        cout<<rand<<" "<<nr_trecuti<<" "<<nr_picati;
+    }
+};
 
-#ifndef COPYRIGHT_INFO
-#define COPYRIGHT_INFO "Copyright 01"
-#endif
-
-namespace hello {
-    
-//\brief Text to get displayed
-const auto str_hello = "Hello world!";
-const auto str_timeis = "Current time is: ";
-const auto str_goodbye = "Good bye world!";
-
-inline void version() 
-{
-    std::cout << "Application " << "Hello" << std::endl 
-              << "Version " << "0.1" << std::endl 
-              << COPYRIGHT_INFO << std::endl
-              << std::endl;
+int main(){//test
+    Examen e1(1,2,23), e2;
+    e1.getvals();
 }
-
-} // namespace hello
-
-int main()
-{
-    using namespace hello;
-    
-    version();
-    
-    std::cout << str_hello << std::endl << std::endl;
-    
-    std::time_t crttime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    std::cout << str_timeis << std::ctime(&crttime) << std::endl;
-    
-    std::cout << str_goodbye << std::endl;
-
-    return 0;
-}
-
