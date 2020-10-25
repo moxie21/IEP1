@@ -10,7 +10,6 @@ private:
     Examen& operator=(const Examen&);//prevent the compiler to create the copy assignment operator
     Examen(const Examen&);//prevents the compiler from creating a default copy constructor
 public:
-    Examen(){}
     Examen(int x, int y, int z)://initializing the fields
         rand(x),
         nr_trecuti(y),
@@ -20,7 +19,7 @@ public:
 //        delete rand;
 //        delete nr_trecuti;
 //        delete nr_picati;
-//    }// 
+//    }//
 //    tuple<int, int, int> getvals(){//return values of fields
 //        //cout<<rand<<" "<<nr_trecuti<<" "<<nr_picati;
 //        return {rand, nr_trecuti, nr_picati};
@@ -32,8 +31,9 @@ public:
 };
 
 int main(){//test
-    Examen e1(1,2,23), e2;
+    Examen e1(1,2,23), e2(2,2,2);
 //    auto [r, t, p] = e1.getvals();
 //    cout<<r<<" "<<t<<" "<<p;
     e1.showVals();
+//    e2 = e1; //error because copy assignment operator is disabled
 }
