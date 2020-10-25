@@ -15,16 +15,7 @@ public:
         nr_trecuti(y),
         nr_picati(z)
     {}
-//    ~Examen(){
-//        delete rand;
-//        delete nr_trecuti;
-//        delete nr_picati;
-//    }//
-//    tuple<int, int, int> getvals(){//return values of fields
-//        //cout<<rand<<" "<<nr_trecuti<<" "<<nr_picati;
-//        return {rand, nr_trecuti, nr_picati};
-//    }
-//    //TODO: setter
+    //  destructor example
     void showVals(){//prints values of fields
         cout<<rand<<" "<<nr_trecuti<<" "<<nr_picati<<"\n";
     }
@@ -32,8 +23,7 @@ public:
 
 int main(){//test
     Examen e1(1,2,23), e2(2,2,2);
-//    auto [r, t, p] = e1.getvals();
-//    cout<<r<<" "<<t<<" "<<p;
     e1.showVals();
-//    e2 = e1; //error because copy assignment operator is disabled
+    // e2 = e1; //error because copy assignment operator is disabled
+    // copy constructor example
 }
