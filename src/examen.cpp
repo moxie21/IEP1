@@ -15,15 +15,16 @@ public:
         nr_trecuti(y),
         nr_picati(z)
     {}
-    //  destructor example
+    //the compiler implicitly generates the destructor
     void showVals(){//prints values of fields
-        cout<<rand<<" "<<nr_trecuti<<" "<<nr_picati<<"\n";
+        cout<<"Examen IEP randul "<<rand<<": "<<nr_trecuti<<" promovati, "<<nr_picati<<" picati.\n";
     }
 };
 
 int main(){//test
     Examen e1(1,2,23), e2(2,2,2);
     e1.showVals();
+    e2.showVals();
     // e2 = e1; //error because copy assignment operator is disabled
-    // copy constructor example
+    // Examen e3(e1); //error because copy constructor is disabled
 }
