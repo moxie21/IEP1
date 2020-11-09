@@ -1,4 +1,5 @@
 # include <iostream>
+# include <algorithm>
 
 using namespace std;
 
@@ -7,7 +8,6 @@ private:
     int rand;
     int nr_trecuti;
     int nr_picati;
-    Examen& operator=(const Examen&);//prevent the compiler to create the copy assignment operator
     Examen(const Examen&);//prevents the compiler from creating a default copy constructor
 public:
     Examen(int x, int y, int z)://initializing the fields
@@ -15,6 +15,12 @@ public:
         nr_trecuti(y),
         nr_picati(z)
     {}
+    Examen& operator=(const Examen& rhs){//copy all elements of the object
+        rand = rhs.rand;
+        nr_trecuti = rhs. nr_trecuti;
+        nr_picati = rhs.nr_picati;
+        return *this;//return *this at the end
+    }
     //the compiler implicitly generates the destructor
     void showVals(){//prints values of fields
         cout<<"Examen IEP randul "<<rand<<": "<<nr_trecuti<<" promovati, "<<nr_picati<<" picati.\n";
@@ -25,6 +31,9 @@ int main(){//test
     Examen e1(1,2,23), e2(2,2,2);
     e1.showVals();
     e2.showVals();
-    // e2 = e1; //error because copy assignment operator is disabled
+    e1=e2;
+    e1.showVals();
+    e1=e1;
+    e1.showVals();
     // Examen e3(e1); //error because copy constructor is disabled
 }
