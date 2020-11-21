@@ -17,7 +17,10 @@ public:
     {}
     Examen& operator=(const Examen& rhs){//copy all elements of the object
         if(this == &rhs)//handle self assignment
+        {
+            cout<<"\n!Self Assignment\n";
             return *this;
+        }        
         rand = rhs.rand;
         nr_trecuti = rhs. nr_trecuti;
         nr_picati = rhs.nr_picati;
@@ -34,7 +37,7 @@ int main(){//test
     e1.showVals();
     e2.showVals();
     e1=e2;
-    cout<<"e1 after copying all elements from e2: \n";
+    cout<<"\ne1 after copying all elements from e2: \n";
     e1.showVals();
     e1=e1;
     cout<<"e1 after self assignment: \n";
