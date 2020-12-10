@@ -45,4 +45,11 @@ int main(){//test
     shared_ptr<Examen> e1(new Examen(1,2,23),deleter);
     shared_ptr<Examen> e2(new Examen(2,2,2),deleter);
     //Item 14: copying a RAII(Resource A Is Initialization) object -> copying behaviour is reference counting (hold on to the resource until the last object has been detroyed)
+    shared_ptr<Examen> e3(e1);  
+    shared_ptr<Examen> e4(e1);
+    shared_ptr<Examen> e5(e3);
+    e2.get()->showVals();
+    e3.get()->showVals();
+    cout<<"\nReference count - randul 1:" <<e1.use_count()<<'\n';
+    cout<<"Reference count - randul 2:"<<e2.use_count()<<'\n';
 }
