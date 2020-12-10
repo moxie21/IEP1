@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/examen.dir/src/examen.cpp.o  -o examen 
