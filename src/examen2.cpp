@@ -1,6 +1,6 @@
+//Projects 1 and 2
 # include <iostream>
 # include <algorithm>
-#include <memory>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ private:
     int rand;
     int nr_trecuti;
     int nr_picati;
-    // Examen(const Examen&);//prevents the compiler from creating a default copy constructor
+    Examen(const Examen&);//prevents the compiler from creating a default copy constructor
 public:
     Examen(int x, int y, int z)://initializing the fields
         rand(x),
@@ -33,16 +33,15 @@ public:
     }
 };
 
-void deleter(Examen *e){//to be called when the reference count of an Examen object goes to 0
-    cout<<"\nCustom deleter for Examen class.\n Deleting ";
-    e->showVals();
-    delete e;
-}
-
 int main(){//test
-
-    //Item 13: using RAII objects to acquire resources in the constructor and release them in the destructor, to prevent resource leaks
-    shared_ptr<Examen> e1(new Examen(1,2,23),deleter);
-    shared_ptr<Examen> e2(new Examen(2,2,2),deleter);
-    //Item 14: copying a RAII(Resource A Is Initialization) object -> copying behaviour is reference counting (hold on to the resource until the last object has been detroyed)
+    Examen e1(1,2,23), e2(2,2,2);
+    e1.showVals();
+    e2.showVals();
+    e1=e2;
+    cout<<"\ne1 after copying all elements from e2: \n";
+    e1.showVals();
+    e1=e1;
+    cout<<"e1 after self assignment: \n";
+    e1.showVals();
+    // Examen e3(e1); //error because copy constructor is disabled
 }

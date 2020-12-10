@@ -1,3 +1,0 @@
-/home/moxie21/Desktop/IEP/Tema 1/build/CMakeFiles/rebuild_cache.dir
-/home/moxie21/Desktop/IEP/Tema 1/build/CMakeFiles/examen.dir
-/home/moxie21/Desktop/IEP/Tema 1/build/CMakeFiles/edit_cache.dir
